@@ -1,0 +1,88 @@
+---
+title: CSS In Detail, Follow Up to the prior introduction
+date: 2019-11-21
+---
+
+Earlier this week, i wrote an article “Introduction to HTML and CSS” and this is a follow up to the same topic. In this piece, i will elaborate in detail the concept and application of CSS.
+
+**CSS Basics**
+
+![](https://cdn-images-1.medium.com/max/2800/1*qVVL3-cDNftbyw-gXVqB7Q.jpeg)
+
+To quickly recall, CSS is short for** Cascading Style Sheet** and it is used to add styles like **typography, margins, colours and other attributes to barebones HTML elements**. Subsequently, making a website **appealing **and **engaging** for the visitor/user. Besides, **responsive design** which allows a given website to adapt according to different user agent/screen size which include mobile, desktop and tablet is also achieved via CSS.
+
+As we have previously discussed, their are **three different types of CSS** and we will quickly go through them before diving deep into complex subjects like specificity and CSS resets. The different types of CSS include the following:
+
+1. **Inline CSS **(added within the HTML element)
+
+1. **Internal CSS** (added in the `<style></style>` element which is added in the head of the HTML file)
+
+1. **External CSS** (In this type, styling attributes are added to an entirely separate CSS file which is linked to the index.html file with the help of the link tag)
+
+**Advanced CSS begins here**
+
+![](https://cdn-images-1.medium.com/max/2000/1*qG3OT-9cER8Nt-P7KR3YPw.jpeg)
+
+1. **Cascading- **As the name suggests, attributes implemented to HTML via Internal or External CSS flow from top to bottom. In simple words, the bottom most CSS attribute applied to an HTML element will ultimately be selected which will reflect when displayed on a browser. Eg: If a developer adds an attribute **“color: red”** to type selector `<p>` and then he/she mistakenly or purposely **re-implement the color attribute** with value “green”, then green will take precedence over red.
+
+However, cascading is rendered irrelevant based upon different CSS selectors namely **Type selector**, **Class selector** and** ID selector** which is due to their distinctive specificity.
+
+2. **Specificity of CSS selectors- **Specificity can also be referred to as the **narrowness of range** of different selectors. As one type of selector is more specific than one or two other type of selector, the selector with highest specificity take precedence and are ultimately applied to the HTML element regardless of its placement in the CSS file. Added below is the specificity of different type of CSS selectors:
+
+**Type selector: 0–0–1**
+
+**Class Selector: 0–1–0**
+
+**Id Selector: 1–0–0**
+
+The three values in each selector is separated via **a ‘-’/hyphen** and Id selectors have the highest specificty than class and type selector. Similarly, Class selectors are more specific than type selectors but are less specific that ID selector.
+
+**Note: **CSS selectors can also be chained together which narrows down their scope and also alter their specificity which we will look at later in this article.
+
+**3. CSS resets: **HTML elements that have not been implemented any CSS attributes may **appear differently on different browsers** based upon their **default styling presets**. In order to eliminate this, we use something called CSS resets that nullify all the preset CSS styles in different browsers. While there are a number of CSS resets available that can be directly pasted to the CSS file, the two most popular options include **Eric Meyer’s CSS** reset and **Normalise.css**.
+
+Even though it is not necessary to use CSS resets, they are usually recommended to provide an **alike representation** of a website across different browsers.
+
+![](https://cdn-images-1.medium.com/max/2560/1*9DUvrZbADSKcgl2HCTmZgQ.jpeg)
+
+**4. Chaining Selectors: **As the word “chain” suggests, we can **combine** different type of selectors to make them **more specific**. Noteworthy, for two selectors to be chained together, it is not necessary for them to have a common type of selector. Therefore, selectors like **Type and Class, Type and ID or Class and ID** can be chained together to narrow down specificity.
+
+Chaining of different selectors can be achieved by **adding single space** in between them. While chaining selectors **consolidates** their specificity, it must be noted that newly formed specificity **remains withheld in their respective hyphenated columns** (|–|–|) which were were previously mentioned.
+
+For eg: when a type selector (0–0–1) is combined with class selector (0–1–0), the combined specificity turns out to (0–1–1). Similarly, if two or more type/class/id selectors are chained together, their resultant specificity will be (0–0–2), (0–2–0), (2–0–0) respectively.
+
+Explaining it further, let’s say an ID selector that has value of **1–0–0** will be more specific than a chained selector with even ten classes or more classes. **(1–0–0)>(0–10–0).**
+
+**5.Multiple classes: **It is possible to add/assign multiple classes to a single HTML element which can later on be used in CSS to **layer styles** and **reduce redundancy of code**.
+
+For example, we want to create multiple buttons in an HTML/CSS website that have same dimension but have different text/background color. Then we can add two **separate classes to each button**, however, one class amongst all of them will remain consistent that will be **targeted only once** in the CSS to add the **required dimensions**. This essentially allows the developer to eliminate a lot of repetitive code. The second class can be used to add **different colors** which can be targeted indepedently.
+
+**6. Color attribute and values in CSS: **CSS supports a wide variety of color attributes which include the following:
+
+* **Keyword colors: **Eg Green, Blue, Black
+
+* **Hex Colors: **This type of color value contains 6 hex digits which is preceded by ‘#’ pound symbol. Noteworthy, if a hex color code consists of three identical pairs, the pairs can be reduced to just one digit. For eg: #ddfftt can also be written as #dft.
+
+* **RGB(): **RGB short for Red, Green, Blue consists of three values, each of which range from 0–255. Syntax: rgb (0–255, 0–255, 0–255).
+
+* **RGBa()**: While, the sytax mainly for this type remains similar to standard RGB(), developer must add another value “a”(opacity that can range from 0–1.0). Syntax: rgba (0–255, 0–255, 0–255, 0–1.0).
+
+* **HSL():** Short for Hue Saturation and Light, each value supports value ranging from 0–360 which represents the color wheel. Syntax: hsl (0–360, 0–360, 0–360).
+
+* **HSLa(): **What RGBa() is to RGB(), HSLa() is to HSL(). Correspondingly the inclusion of “a” is used to manipulate the opacity of the colour. Syntax: hsl (0–360, 0–360, 0–360, 0–1.0).
+
+![](https://cdn-images-1.medium.com/max/2000/1*uDnBNEtVjnehW8QJ0Vs2vg.jpeg)
+
+**7. Lengths: **CSS allows elements in HTML to be attributed with two types of lengths which include the following:
+
+* **Absolute Lengths: **Can be referred to as hard-code method i.e elements style with these values retain their irrespective of screen size. Some examples of absolute length values include pixel, centimeters and inches. One drawback of using this type of length can be that certain elements on a HD display can shrink greatly making them hard to read and vice versa.
+
+* **Relative Length: **Where absolute lengths fall short, Relative lengths come into play. Essentially, HTML elements attributed with this type of length will scale making webpage look more natural depending on the size and resolution of a given display.
+
+The size of relative length elements **relies on other units of measurement** like user defined **font-size of text**. The most common relative units include **EM, REM and percentage**. One example of this could be viewing a webpage on a display, lets say with a size of 50 inch or even greater, instead of all the website elements shrink on just the top-right corner the content will scale accordingly utilising the whole screen real-estate.
+
+Well thats it for the day, i will continue to write more such articles as i gradually learn about HTML, CSS and eventually JS (the brains of a website).
+
+Thanks for reading.
+
+[Digital assets like Images included in the post are not owned by me. For removal, mail me with a copyright statement.]

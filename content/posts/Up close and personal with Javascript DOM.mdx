@@ -1,0 +1,54 @@
+---
+title: Up close and personal with Javascript DOM
+date: 2020-01-13
+---
+
+The markup language HTML and the cascading language CSS are the building blocks of websites which can easily be programmed and interpreted by humans. However, for rendering these lines of code, web browsers convert these files into a tree like structure which is referred to as DOM aka the Document Object Model.
+
+![photo by W3Schools](https://cdn-images-1.medium.com/max/2000/1*LA6AXbzvC0IQ_d2H8v3NCw.gif)*photo by W3Schools*
+
+Besides, DOM comes in handy when the developer wants the behaviour of a website to change on the fly i.e alter elements without requiring to refresh the page which opens a world of endless possibilities. While it is a cross-platform and language-independent interface, in this article we will stick with discussing it only in reference to Javascript. The image shared below will help you to better comprehend the aforementioned tree like structure.
+
+Note: Everything in the DOM tree is an object which includes element tags, white spaces and event white spaces. Factually speaking, everything that is in the source code will also be present in this hierarchical structure.
+
+As the image illustrates, on the top of the DOM tree sits the Document object which acts as the parent of the Root element (HTML) and ancestor of all other nodes. To access these children and descendants, the DOM supports several different methods which are listed below.
+
+* **document.getElementById(*id*): **Find an element with its id that is defined in the HTML.
+
+* **document.getElementsByTagName(tag): **Find all elements with the given tag name.
+
+* **document.getElementsByClassName(*name*): **Find all elements with the given class name.
+
+* **document.querySelector(‘#id’/‘.class’/‘tagName’): **One of the most versatile element selectors in DOM as it supports id, class-name and tag-name. In case of multiple elements having same class or tag, it automatically clings to the first one.
+
+* **document.querySelectorAll(‘#id’/‘.class’/‘tagName’):** Same as “document.querySelector” but makes a collection of all elements with a matching value.
+
+**Now,** that we know how to access the DOM elements, lets have a look how to manipulate them:
+
+**Adding and Deleting Elements**
+
+* **document.createElement(*elementName*): **Create the HTML element mentioned in the brackets.
+
+* **document.appendChild(*element*): **Append the given HTML element to document object.
+
+* **document.replaceChild(*new, old*): **Used to replace an HTML element in the DOM tree.
+
+* **document.removeChild(*element*): **Used to delete an an object/element.
+
+## DOM Events
+
+To make websites interactive, web developers can add something called “eventListeners” which when triggered based upon a certain event like a mouse click, keypress can invoke a function that ultimately can provide the desired result like changing color, image or text; to name a few.
+Example:
+
+    var body = document.querySelector('body');
+    body.addEventListener('click', randomBackgroundColor);
+    function randomBackgroundColor () {
+        var randomColor = '#' + (Math.floor(100000 + Math.random() * 900000));
+        body.style.backgroundColor = randomColor;
+    }
+
+The first line of code will create a variable called body which targets the body element in the HTML. Following which, every-time a user clicks anywhere on the body, it will trigger and event listener called randomBackgroundColor which is function and as the name suggests it will change the background of the website/project.
+
+![](https://cdn-images-1.medium.com/max/2304/1*nqbs2GQYg5fU07rOEqxsOA.png)
+
+Keeping it comprehensive and beginner friendly, I will end this article here. However, if you are interested in learning more about the topic. [Check out DOM on Javascript.info](https://javascript.info/dom-nodes)

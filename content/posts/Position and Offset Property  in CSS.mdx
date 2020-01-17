@@ -1,0 +1,65 @@
+---
+title: Position and Offset Property  in CSS
+date: 2019-11-28
+---
+
+Until now we have been positioning HTML elements on the webpage with the help of float, margin, padding properties which can be assigned to the corresponding CSS selectors. However, there is another property, namely position which is purpose built to achieve the same result that we will discuss in this article.
+
+![](https://cdn-images-1.medium.com/max/2000/1*mlYm2IJiO2eI7JMizVp2EA.png)
+
+The position property accepts four type of values which are as follows:
+
+* **Static**
+
+* **Relative**
+
+* **Absolute**
+
+* **Fixed**
+
+**Syntax:
+**box1 {
+position: static/relative/absolute/fixed;
+}
+
+Before we discuss the attributes of each one, we will quickly go through **offset **property which dictates the positioning of the content . Offset also supports four properties which include **top, left, bottom **and** right. **The developer can even use more than offset property i.e horizontal and vertical simultaneously to set the position of a given element.
+
+**Syntax**
+
+.box {
+top: 10px;
+left: 40px;
+}
+
+Coming to the values of **position, **let’s begin with **Static** which is the default property of all HTML elements. Elements with this property have a normal flow of HTML document i.e they are displayed based upon the markup.
+
+Next we have **relative, **which sets element based upon its own position which is considered its reference point. For eg: a smaller box(div) which is offset top:0 and left:0 will stick to the top-left corner of its parent, a large div in this case which could be place anywhere in the HTML file.
+
+At number three is the **absolute** position, when set to this value the offset values take the reference from the browser window instead of an immediate parent. However, when a position relative is added to the parent, the reference changes to parent instead of browser window. For eg: a smaller div with offset bottom:0 and right: 0 placed anywhere in the html document will appear on the bottom right corner of the browser window. Setting an element to this value takes its out of the normal flow.
+
+[Note: When the offset properties are not implemented, absolutely positioned elements stick at their original position maintaining their original position.]
+
+Last but not the least, we have **fixed **which allows an element to remain fixed to its assigned position even when the page is scrolled. For eg: several modern websites feature a header which stays on top regardless of the fact that how low a page has been scrolled. Such elements break the normal flow of HTML and their original space is taken over by succeeding elements.
+
+Some of you might be wondering, what if two elements with identical offset values are set to position fixed or absolute, this is where another crucial property, the **z-index **comes into play. Think of z-index as the depth of multiple divers in an ocean. The diver that is farthest from the ocean bed or closest to the surface takes precedence over the other.
+
+![](https://cdn-images-1.medium.com/max/2000/1*H1Yz_c4dGo0Mph28nVUntQ.jpeg)
+
+Z-index can accept value that range from -infinity to infinity. However, it is general practise to use integers that are easy to remember.
+
+**Eg
+**.box1 {
+position: fixed;
+top: 10px;
+right: 40px;
+z-index:7;
+}
+
+.box2 {
+position: fixed;
+top: 10px;
+right: 40px;
+z-index:9;
+}
+
+In this case, box2 will win the positioning contest based on higher value of Z-index.

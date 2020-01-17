@@ -1,0 +1,203 @@
+---
+title: CSS Flexbox, Follow Up to the prior introduction
+date: 2019-12-01
+---
+
+Late last month, i wrote a couple of articles which exhibit various methods to position elements on a website, some of which include “CSS position property”, “padding, margin” in Box Model and “float”. Today we will discuss another method, namely Flexbox which significantly simplifies this process.
+
+## Flexbox
+
+The term Flexbox is made out of two words i.e Flexible-Box, which is self explanatory. It is essentially a flexible container which can hold several elements whose properties namely position, width and height can be easily manipulated. Overall, Flexbox is a robust solution to make flexible layouts that looks presentable on various devices like handheld smartphones and large screen desktop computers.
+
+It consists of two elements which include a virtual box aka the Flex container that accommodates different elements which are referred to as Flex children. The image attached below will make it easier to comprehend.
+
+![](https://cdn-images-1.medium.com/max/2000/1*MoT0lsT8TTqn5O7AWDtE-w.png)
+
+In order reap efforts of Flexbox or turn a parent element in an HTML document into Flexbox we must set its **display** property to either **flex** or **inline-flex**.
+
+**Syntax:
+**div {
+display: flex/inline-flex;
+}
+
+Both flex and inline-flex are used to enable Flexbox, however, their outcome is quite different. The two properties make elements within a container align next to each other on the main-axis (horizontal by default), however, the container that is set to value **flex **takes the entire available width. On the other hand, container with display value of **inline flex** only takes the width that is required to house all elements.
+
+## Flex Direction
+
+![](https://cdn-images-1.medium.com/max/2728/1*bw4hK0MYxFXbw7ylW2fR5Q.png)
+
+While we are discussing the fundamentals of Flexbox, let’s also talk about main axis and cross axis that it considers while placing elements. As previously mentioned, the default main-axis of Flexbox is set horizontally and accordingly the vertical axis happens to be the cross axis. However, this can easily be interchanged if the developer is willing to align items vertically rather than horizontally. The code required to achieve this is listed below in addition to the syntax.
+
+**Syntax:
+**div {
+flex-direction: column, (row: default value); 
+}
+
+In addition, Flex direction property also accepts two other values which are **row-reverse** and **column-reverse. **Going by their name, both these properties reverse the order of elements placed in the container with value set to either. The flex-direction with value **Column-reverse **is the opposite of column and same is the case with **row-reverse.**
+
+## Flex Wrap
+
+![](https://cdn-images-1.medium.com/max/2000/1*EXGUjmJGIKuGIXYTDGSEig.png)
+
+    flex-wrap: nowrap || wrap || wrap-reverse;
+
+Moving forward let’s talk about the next property of Flexbox which is **Flex Wrap **that allows contained elements to create a new column or row which would be required if more space is needed to accommodate all the elements. This property can accept three values which are as follows:
+
+1. No Wrap (default value, contents will overflow if the contained elements require more space than what has been specified)
+
+1. Wrap (allows flex parent to create additional row or column to house all elements)
+
+1. Wrap-Reverse (the additional row or columns required to house additional elements will be created on prior line or)
+
+## Flex Flow
+
+Next we have the **flex-flow **property which is the short hand to assign both flex direction and flex-wrap. Following is its syntax:
+
+flex-parent {
+flex-flow: row/column(direction) nowrap/wrap/wrap-reverse( flex-wrap);
+}
+
+## **Justify Content**
+
+![](https://cdn-images-1.medium.com/max/2242/1*VncyD4Mivk51_2mB1xUBxA.png)
+
+    justify-content: flex-start || flex-end || center || space-between || space-around || space-evenly;
+
+Next in line is **justify content **which is used to align contents on the main axis. It accepts the following properties:
+
+1. flex-start: (default) brings all the elements to the beginning of flex parent
+
+1. flex-end: moves all elements to end of the flex parent
+
+1. center: moves all elements to center of the flex parent
+
+1. space-between: the first and last elements are moved to the far left and right respectively and the remaining space is divided equally in between the elements.
+
+1. space-around: all the space is divided and distributed on both the left and right side of elements. Correspondingly, the first and last element look like they have lesser space than others which is not the case as they only inherit space of just one element.
+
+1. space-evenly: all elements get equal space in between and around making them look evenly spaced on both left and right sides.
+
+## Align Items
+
+![](https://cdn-images-1.medium.com/max/2000/1*Brmr9RsGbB3sXLFW3WxqrA.png)
+
+    align-items: stretch || flex-start|| flex-end|| center || baseline;
+
+What **justify content **does on the main axis, **align items **does exactly the same on cross-axis (vertical by default) i.e distribute space between elements. It accepts three properties that justify content accepts namely flex-end, flex-start and centre. Besides, it also supports two additional properties which are stretch and baseline.
+
+1. stretch (default): expands the element so that it takes entire height of cross axis
+
+1. flex-start: brings all the elements to the beginning/top of flex parent
+
+1. flex-end: moves all elements to endpoint/bottom of the flex parent
+
+1. center: moves all elements to center of the flex parent
+
+1. baseline: all the elements are aligned based on the baseline of text inside them which might make them look asymmetrical
+
+## Align Content
+
+![](https://cdn-images-1.medium.com/max/2000/1*VmfjtWiRcM1u1MlaPhka0g.gif)
+
+Both the **align items **and **align content **properties are used to line up content on the cross-axis, however, in case of a multi-column Flexbox containers, the **align items **property does not work. Likewise, in case all the **flex-items** are on a single line in a container then **align content **renders no-effect/result.
+
+Noteworthy, acceptable values of align content are somewhat different and are listed below.
+
+    align-content: stretch || flex-start || flex-end || center || space-between || space-around;
+
+1. stretch (default): expands the element in multiple columns so that they take remaining height of the cross axis.
+
+1. flex-start: all elements in a multi-line flex container will be aligned from the starting point on the “cross-axis”.
+
+1. flex-end: all elements in a multi-line flex container will be aligned at the end point on the “cross-axis”.
+
+1. center: moves all elements to center of the flex parent on “cross-axis”.
+
+1. space between: the remaining space es evenly distributed between the flex-items on the “cross-axis” similar to **justify-content: space-between **that is applicable on the "main-axis".
+
+1. space-around: The remaining space is evenly distributed around the flex-items on the “cross-axis” similar to **justify-content: space-around **that is applicable on the “main-axis”.
+
+Until now, we have discussed all the properties that can be applied to the flex container/parent but now we will dive deep into properties that can be applied to flex children.
+
+## Order
+
+![](https://cdn-images-1.medium.com/max/2000/1*sWPnINZSEx_BK-bqWG5wdw.png)
+
+This property can be used to manipulate the order of different elements within a flex container without altering its position in the HTML structure. The default value for all elements is 0 which can be changed to either positive or negative integers.
+
+Higher the order value of an element, the later it is placed in the flex container. For eg: an element with order value of 5 will be placed after all elements with order value 4 or less irrespective of their placement in the source which is the HTML document.
+
+[Note: An element with order value of ‘-’ negative will place it in front of all other elements whose order is not manually defined as their default value is 0 which is greater than any negative integer.]
+
+**Syntax
+**flex-child {
+order: 0(default), negative or positive integer;
+}
+
+## Flex Grow
+
+![](https://cdn-images-1.medium.com/max/3752/1*Y3ffurdpvTnm3dDpn0J1Ug.png)
+
+This property comes in handy when the developer wants a flex-child to incorporate the remaining space in a flex container which would otherwise appear as blank space. The default value of this property is ‘0’ and flex-children do not expand right off the bat.
+
+In order to change it, the property can be set to any positive integer except for zero/'0'. Noteworthy, different flex children can be assigned different flex-grow value and the remaining space will be added to their original width in repsective proportion.
+
+**Syntax
+**flex-child {
+flex-grow: 0(default)| any positive integer;
+}
+
+## Flex Shrink
+
+![](https://cdn-images-1.medium.com/max/2000/1*gRVsgR9qQcvx8_Aa8iA_Jg.png)
+
+Flex shrink is the exact opposite of **flex grow** and as its name suggests, it can be used to shrink elements if the window is narrowed below a certain width. It’s default value is ‘0’ which can be set to any positive integer.
+
+Moreover, different flex-children can be assigned different shrink values which would make them shrink proportionately.
+
+**Syntax
+**flex-child {
+flex-shrink: 0(default)| any positive integer;
+}
+
+## Flex Basis
+
+Next we have the flex basis property which can be applied to a flex-child element. It is comparable to the width property, as it accepts values in px, %, em, rem, etc. However, it is only applied in case the flex-grow or flex-shrink property is used in the CSS. Essentially, is applied to set a base width which would shrink or grow as defined.
+
+**Syntax
+**flex-child {
+flex-basis: 200px;
+}
+
+## Flex
+
+The **flex **property which is nothing except for the shorthand manner to implement flex grow, flex-shrink and flex-basis on one line.
+
+**Syntax:
+**flex-child {
+flex: 1 1 200px; [flex-grow, flex-child, flex-basis]
+}
+
+In case just one value is assigned to this property, it is considered as **flex-grow **and the remaining values i.e **flex-child** and **flex-basis **are set to default.
+
+## Align Self
+
+![](https://cdn-images-1.medium.com/max/2000/1*oZQaz9q8OQ2qvvdeiKxSNQ.png)
+
+Lastly, we have the **align-self **property which is same as **align-items **except for the fact the former is applied to the flex-child and the latter is applied to the flex-container/parent. It accepts all the same values as align-items which include the following:
+
+align-self: auto || stretch || flex-start || flex-end || center || baseline;
+
+Due to the fact, that different flex-children in the same container can be assigned differently on the cross axis, it allows to create a highly complex layout.
+
+1. stretch (default): expands the element so that it takes entire height of cross axis
+
+1. flex-start: brings all the elements to the beginning/top of flex parent
+
+1. flex-end: moves all elements to endpoint/bottom of the flex parent
+
+1. center: moves all elements to center of the flex parent
+
+1. baseline: all the elements are aligned based on the baseline of text inside them which might make them look asymmetrical
+
+(I do not own copyright to images used in the article. Please contact for removal with a copy of legal document of ownership )

@@ -7,17 +7,17 @@ module.exports = {
   ],
   // Customize your site metadata:
   siteMetadata: {
-    title: `Sahil's Blog`,
+    title: `SahilLikes2Code`,
     author: `Sahil Kapoor`,
     description: `Journey of an average fullstack developer`,
     social: [
       {
-        name: `twitter`,
-        url: `https://twitter.com/gatsbyjs`,
+        name: `Twitter`,
+        url: `https://twitter.com/Sahil044`,
       },
       {
         name: `github`,
-        url: `https://github.com/gatsbyjs`,
+        url: `https://github.com/sahilLikes2Code`,
       },
     ],
   },

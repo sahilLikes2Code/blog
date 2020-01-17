@@ -1,0 +1,160 @@
+---
+title: Demystifying The CSS Box Model
+date: 2019-11-26
+---
+
+Before we explore the CSS Box Model, let’s quickly take a look at the different types of display properties which are as follows:
+
+1. **Block level: **HTML elements with the display property “**block**” takeup the entire width of a webpage regardless of the actual width of content inside that element. Some of the most common “block level” elements include **`<p>` paragraph, `<h1>`**to**`<h6>` **and **`<div>`. **Unlike “**inline**” level element which we will discuss next, block level elements are capable of being assigned height and width manually via CSS.
+
+**Syntax:** p {
+ display: block;
+}
+
+2. **Inline: **As the name suggests, HTML elements with this display property lay one after other on the same line, given their is sufficient space to accomodate the following element. The benefit of elements with this type is that different type of content like images (inline by default) and text (block by default when converted to inline) can wrap around the image, making the page content more immersive for the user.
+
+**Syntax:** span {
+ display: inline;
+}
+
+**Note:** Inline level elements have a serious drawback as they cannot be assigned any height or width manually greatly hampering its applications. To overcome this caveat, their is another display property “**Inline-Block**” which we will discuss next
+
+3. **Inline-Block: **This type of elements are a hybrid of both Inline and Block level elements, therefore, they can be placed next to each other on the same line whilst still supporting the option to add height and width manually.
+
+**Syntax:** div {
+ display: inline-block;
+}
+
+4. **None: **HTML elements that are assigned this display property in the cascading stylesheet (CSS) are prevented from being displayed on the webpage. Noteworthy, such elements do not take up any space when inspected via the developer tools which will also be discussed in this article.
+
+**Syntax:** p {
+ display: none;
+}
+
+**The CSS Box Model**
+
+According to this model, each element on a webpage irrespective of its shape that is presented to the viewer, say circle or triangle, is assigned a rectangular shape behind the scenes i.e when inspected via the developer tools. This overall rectangular space is comprised of several aspects which include the assigned height and width of element, padding, margin and border on the top/bottom and right/left.
+
+The image shared below will make it easier to understand the concept of the CSS Box Model.
+
+![](https://cdn-images-1.medium.com/max/2000/1*ydgkPlP_bYrNp9FxxjYHFw.gif)
+
+Taking a closer look at all of the aspects mentioned above, lets begin with **height** and **width**. Both these properties can either be assigned manually or kept as is the source. For example: an image that has dimensions of 800 x 640px when embedded on a webpage has preset height and weight and is not necessary to provide manually, although it can be done by the syntax provided below:
+
+img {
+height: 400px; 
+width: 320px;
+}
+
+**Padding: **Padding comes right after the height and width of an element and can be used to provide some breathing space within the boudary of that element. Accordingly, it can be added on all four sides which include top, bottom, right and left.
+
+Padding can be assigned via different syntaxes including short hand and long hand which are listed below:
+
+**Short hand padding syntax:**
+p {
+padding: 10px; [applies 10px padding on all four sides]
+}
+
+p {
+padding 10px 20px; 
+} [applies 10px padding on top an bottom and 20px padding on right and left]
+
+p {
+padding 10px 20px 30px 10px;
+} [moving in a clockwise direction padding is applied to all four sides i.e top, right, bottom and left respectively]
+
+**Long hand padding syntax:**
+
+p {
+padding-top: 10px;
+padding-right: 20px;
+padding-bottom: 30;
+padding-left: 10px;
+} [same result as expanded version of short handed but allows to assign padding only to particular side]
+
+**Border: **Going by its name, it this CSS property adds a border to the element which makes is stand out while being displayed on a webpage. It is necessary for this property to be assigned three different aspects including color, width and border type which can be assign either via the long hand method or short hand method as listed below:
+
+**short hand border syntax:**
+
+p {
+border: 2px[width] black[color] dotted[type];
+}
+note: color can be assigned in all the ways that are supported by CSS including keyword, rgb, hex, hsl.
+
+**Long hand border syntax: 
+**p {
+border-top-width: 10px;
+border-right-width: 10px;
+border-bottom-width: 10px;
+border-left-width: 10px;
+border-color: black; [individual color to each side can also be added, syntax same as long hand width assignment. just exchange “width” with “color”.]
+border-type: dashed;
+
+**Margin: **One of the most crucial aspect of CSS Box Model, Margin comes right outside border of an element. This helps in positioning of an element on a webpage and manipulating space in between different elements.
+
+Similar to padding and border, it can also be assigned via a short hand and long hand method for which the syntaxes are as follows:
+
+**Short hand margin syntax:**
+
+p {
+margin: 10px; [applies 10px margin on all four sides]
+}
+
+p {
+margin 10px 20px; 
+} [applies 10px margin on top an bottom and 20px margin on right and left]
+
+p {
+margin 10px 20px 30px 10px;
+} [moving in a clockwise direction margin is applied to all four sides i.e top, right, bottom and left respectively]
+
+**Long hand margin syntax:**
+
+p {
+margin-top: 10px;
+margin-right: 20px;
+margin-bottom: 30;
+margin-left: 10px;
+} [same result as last method of short handed margin assignment but allows to assign margin only to just one side or all four]
+
+**Box-Sizing:**
+
+As we previously discussed, all elements on a webpage take up a rectangular shape irrespective of their displayed shape. Accordingly, the total width and total height of an element on a webpage can be calculated by adding its width+left and right padding + left and right border +left and right margin and height + top and bottom padding + top and bottom border + top and bottom margin. Noteworthy, while inspecting an element in the developer tools of the browser, the margin will be excluded in calculation but it comes into play when considering its total height or width.
+
+While this can be confusing for the developer to calculate the total width and height which will be used to assign dimensions to its parent, CSS supports another property namely **border-box **which makes the developers life a lot easier. Essentially, this property shrinks the content of an element while accommodating the padding and margin to the total width or height. In simple words when set to this property, developers can assign the parent of an element particular width and height and rest will be taken care of CSS which will prevent the contents from overflowing.
+
+The default box-sizing property is Content-Box which takes into consideration the padding and border as well.
+
+**Box sizing syntax:**
+
+div{
+display: border-box/content-box;
+}
+
+**Outline: **Going by its name, it adds an outline around the border of an element creating an effect of two different colored borders. While this and box-shadow are not a part of the Box-Model, its is better to clarify them while going through it.
+
+**Syntax:**
+
+p {
+outline: dashed black 5px;
+}[same as border except for offset]
+
+Accepts the following properties.
+
+* outline-style
+
+* outline-color
+
+* outline-width
+
+* outline-offset
+
+* outline
+
+**Box-Shadow: **Yet another method to add a sort of border outside outline, it is mainly used to add a shadow making that element lifelike. Can be used to display as solid color or with a blurred effect via the spread aspect while assigining it.
+
+**syntax:**
+
+.box {
+ box-shadow: 10px 10px 8px 10px #888888;
+} [horizontal-offset, vertical-offset, blur (optional), spread and color]
