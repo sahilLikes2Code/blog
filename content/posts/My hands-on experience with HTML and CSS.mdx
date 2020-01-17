@@ -3,8 +3,42 @@ title: My hands-on experience with HTML and CSS
 date: 2019-11-20
 ---
 
-To begin with, unlike my previous belief, neither HTML nor CSS is a programming language. Instead they are markup and styling languages respectively.
+To begin with, unlike my previous belief, neither **HTML** nor CSS is a programming language. Instead they are markup and styling languages respectively.
 
 ![alt text](https://miro.medium.com/max/814/1*l_fkDG3AvqcXwsFm5OeSfw.png "")
 Talking about HTML, it has an easy to grasp syntax which has been further simplified after the addition of certain semantic tags in HTML5 (the latest version). Regardless of the content, every HTML page on any given website has to have a predefined boilerplate which is as follows:
 
+```html
+<!DOCTYPE html>
+<html lang=”en”>
+<head></head>
+<meta charset="utf-8">
+<title>invisible on the webpage, instead shows up on the tab selecter in browser</title>
+</head>
+<body>
+<header></header>
+<main></main>
+<footer></footer>
+</body>
+</html>
+
+```
+While we are discussing about the HTML boilerplate, lets also talk about another vital aspect, indentation (absent here as medium’s text editor is not a full blown coding editor). Indentation simply means proper spacing between parent and child elements which makes it easy to read and maintain code. For proper indentation, press the spacebar twice or tab button once. While static websites that only have a handful of pages can get away without using proper indentation, as the size of a website grows gradually, it will become harder to edit and maintain its source code.
+
+Furthermore, let's talk about another vital aspects of an html element which are attributes and their corresponding values. An attribute can be chosen to alter the behaviour of the element and value reflects all the possible options. (For eg: target='blank', used to open url in new tab)
+
+Note: It is not necessary to have header, main and footer between the opening and closing body tags. But it helps with factors such as a webpage’s SEO (Search Engine Optimisation) and it is greatly helpful for visually impaired users that browse a webpage on text to speech devices or audio browsers.
+
+While, HTML follows a syntax of encompassing content with opening and closing tags for most elements, it is not applicable to every element, some of which include `<meta>` `<link>` and `<img>`.
+
+Some fo the previously mentioned semantic tags that were introduced with HTML 5 include the following:
+`<header>` (used for the top-most content on the webpage like logo and company name)
+
+
+* `<nav>`(used as short for navigation part which is found on most websites with a contemporary layout)
+* `<article>` (as the name suggests, used to wrap content like articles on a webpage. To classify a group of image, text and headings as an article, one must question whether its contents make complete sense if sent via mail/printed on a paper or not)
+* `<section>`(can be used to group several elements together in to a logical grouping. Eg: set of images bundled together)
+* `<aside>`(used to place supportive content on the left or right side of a webpage like related stories or similar links. Consists of supportive content. It’s absence won’t necessarily effect the main content like an article)
+* `<footer>`(placed at the bottom of the webpage, can have content like quick links, social media links, copyright information)
+Did you know: these semantic tags are derived from the most commonly assigned classes by independent developers across the globe for certain div sections in a webpage, according to regulators of HTML.
+Some of the most commonly used elements in an HTML page are listed below:
